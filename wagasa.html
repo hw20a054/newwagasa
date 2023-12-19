@@ -192,14 +192,14 @@
             Sound.setBuffer(buffer);
             Sound.setLoop(true);
             Sound.setVolume(0.01);
-            Sound.play();
+            
         });
 
 
 
         function animate() {
             requestAnimationFrame(animate);
-
+            
             wagasa1.position.z += 0.2 / 10;
             wagasa2.position.z += 0.33 / 10;
             wagasa3.position.z += 0.14 / 10;
@@ -279,6 +279,10 @@
         animate();
 
         window.addEventListener("mousedown", function (ret) {
+            if(sflg == false){
+                Sound.play();
+                sflg = true;
+            }
             let mouseX = ret.clientX;                           // マウスのx座標
             let mouseY = ret.clientY;                           // マウスのy座標
             //console.log(mouseX + " : " + mouseY);
